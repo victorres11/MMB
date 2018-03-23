@@ -21,7 +21,7 @@
     height: 100%;
     background: rgba(41, 69, 125, 0.35);
   }
-  
+
   .container {
     position: relative;
     z-index: 1;
@@ -98,6 +98,28 @@
   }
 }
 
+.features-section {
+  .video {
+  @media(min-width: 992px) {
+    max-width: 635px;
+  }
+  /* make video fluid for responsiveness */
+  .iframe-wrapper {
+    position: relative;
+    padding-bottom: 56%;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+}
+
 .testimonials-section {
   margin-top: 110px;
 
@@ -119,7 +141,7 @@
       margin-bottom: 45px;
     }
 
-    .quote {      
+    .quote {
       color: #53565f;
       line-height: 26px;
       border: 1px solid #E2E2E2;
