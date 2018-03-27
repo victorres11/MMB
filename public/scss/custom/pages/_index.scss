@@ -101,7 +101,8 @@
 .features-section {
   .video {
   @media(min-width: 992px) {
-    max-width: 635px;
+    // max-width: 635px; // This was screwing up the centering of the video
+    text-align: center;
   }
   /* make video fluid for responsiveness */
   .iframe-wrapper {
