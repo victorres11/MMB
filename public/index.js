@@ -26,4 +26,4 @@
     }
   }
 
-  window.onload = findCouponCodeAndReplaceLinks()
+  window.onload = setTimeout(function(){ findCouponCodeAndReplaceLinks(); }, 4000);
