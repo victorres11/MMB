@@ -36,6 +36,7 @@
       /* This will replace the discounted price shown on the CTA on the bottom of the page. */
       newPrice = discountMap[couponCode];
 
+      // New price can = 0 wish is falsy, so I use this condition instead.
       if (newPrice > -1) {
           document.getElementById("discount_price").innerHTML = "$" + newPrice;
       }
