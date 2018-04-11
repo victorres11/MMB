@@ -1,29 +1,45 @@
-  console.log("HI!")
   function getCouponCode() {
-    var queryString = document.location.search
     /* Allow others to put in their own coupon code and replace it on the links if needed. */
-    queryString = document.location.search
-    couponCode = queryString.split("coupon=")[1] // grab the part after coupon=
+    var queryString = document.location.search;
+    couponCode = queryString.split("coupon=")[1]; // grab the part after coupon=
     return couponCode
   }
 
   function replaceExistingUrls(couponCode) {
     /* Cycle through existing links and replace the existing coupon code with a declared one*/
-    var linkedElements = document.getElementsByClassName("course_link")
+    var linkedElements = document.getElementsByClassName("course_link");
 
     for (i=0; i<linkedElements.length; i++) {
-      console.log(linkedElements[i])
       linkedElements[i].href = linkedElements[i].href.replace("SPRING_2018_PROMO", couponCode)
       // console.log(linkedElements[i])
     }
   }
 
-  function findCouponCodeAndReplaceLinks() {
+  function findCouponCodeAndReplaceLinks(discountMap) {
     if (document.location.search.indexOf("coupon=") > 0) {
-      var couponCode = getCouponCode()
-      replaceExistingUrls(couponCode)
-      console.log("findCouponCodeAndReplaceLinks executed...")
+      var couponCode = getCouponCode();
+      replaceExistingUrls(couponCode);
+      replaceDisplayedPrice(couponCode, discountMap);
     }
   }
 
-  window.onload = setTimeout(function(){ findCouponCodeAndReplaceLinks(); }, 4000);
+  /* Prices by couponCode */
+  var discountMap = {
+      EARLY_TESTER      : 0,
+      BNI               : 77.40,
+      SPRING_2018       : 98,
+      "65_PERCENT_OFF"  : 45,
+      "100_OFF"         : 29
+  };
+
+  function replaceDisplayedPrice(couponCode, discountMap) {
+      /* This will replace the discounted price shown on the CTA on the bottom of the page. */
+      newPrice = discountMap[couponCode];
+
+      if (newPrice > -1) {
+          document.getElementById("discount_price").innerHTML = "$" + newPrice;
+      }
+  }
+
+
+  window.onload = setTimeout(function(){ findCouponCodeAndReplaceLinks(discountMap); }, 4000);
