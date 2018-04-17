@@ -29,7 +29,9 @@
       BNI               : 77.40,
       SPRING_2018       : 98,
       "65_PERCENT_OFF"  : 45,
-      "100_OFF"         : 29
+      "100_OFF"         : 29,
+      "REAL-ESTATE-PRO" : 64.50,
+      "MORTGAGE-BROKER-DISCOUNT": 64.50
   };
 
   function replaceDisplayedPrice(couponCode, discountMap) {
