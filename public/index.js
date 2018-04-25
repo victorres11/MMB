@@ -32,7 +32,8 @@
       "100_OFF"         : 29,
       "REAL-ESTATE-PRO" : 64.50,
       "MORTGAGE-BROKER-DISCOUNT": 64.50,
-      "KMZEPHYR"        : 49
+      "KMZEPHYR"        : 49,
+      "KMZEPHYR_FREE"   : 0
   };
 
   function replaceDisplayedPrice(couponCode, discountMap) {
